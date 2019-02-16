@@ -1,33 +1,112 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
+  padding-left: 100px;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f2f2f2;
+  min-width: 100%;
   min-height: 100vh;
+}
+
+.auth {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(
+    99deg,
+    #ff70a6,
+    #ff9770 40%,
+    #ffd670 73%,
+    #e9ff70
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.auth_container {
+  border-radius: 8px;
+  box-shadow: 0 14px 28px 0 rgba(0, 0, 0, 0.25),
+    0 10px 10px 0 rgba(0, 0, 0, 0.26);
+  background-image: linear-gradient(97deg, #ff7a6e, #ffd670);
+  width: 33vw;
+  height: 50vh;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+  align-items: center;
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.auth_container h1 {
+  display: block;
+
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin: 0;
+}
+
+.auth_title {
+  font-size: 80px;
+  font-weight: 700;
+}
+
+.auth_input_box {
+  display: flex;
+  justify-content: space-between;
+  width: 55%;
+}
+
+.auth_input_box > input:focus {
+  outline-color: #ff9770;
+  outline-width: 5px;
+}
+
+p {
+  display: block;
+  font-weight: bolder;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin: 0;
+}
+
+input {
+  /* background-color: white;
+  cursor: text;
+  padding: 1px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: initial;
+  border-image: initial;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  margin: 0em;
+  font: 400 11px system-ui; */
+}
+
+.auth_button_container {
+  display: flex;
+  justify-content: space-around;
+  width: 55%;
+}
+
+.button_form {
+  border-radius: 1px;
+  background-image: radial-gradient(circle at 50% -46%, #737373, #403d39);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
 }
