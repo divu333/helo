@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import logo from "../../../src/helo_logo.png";
+import { Link } from "react-router-dom";
+
 class Auth extends Component {
-  state = {};
   render() {
     return (
       <div className="auth">
@@ -10,14 +11,18 @@ class Auth extends Component {
           <h1 className="auth_title"> Helo </h1>
           <div className="auth_input_box">
             <p> Username:</p>
-            <input value="" />
+            <input type="text" />
           </div>
           <div className="auth_input_box">
             <p>Password:</p>
-            <input type="password" value="" />
+            <input type="password" />
           </div>
           <div className="auth_button_container">
-            <button className="button_form">Login</button>
+            <Link to="/dashboard">
+              {" "}
+              <button className="button_form">Login </button>
+            </Link>
+
             <button className="button_form">Register</button>
           </div>
         </div>
