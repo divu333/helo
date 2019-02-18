@@ -4,6 +4,7 @@ import new_logo from "../../../src/new_logo.png";
 import logout from "../../../src/shut_down.png";
 import { Link } from "react-router-dom";
 import "../Nav/nav.css";
+// import "../../App.css";
 
 var divStyle = {
   backgroundImage: "url(https://robohash.org/ )"
@@ -27,14 +28,13 @@ function Nav(props) {
         </Link>
 
         <Link to="/new">
-          <img className="nav-img" src={new_logo} alt="new post" />
+          <img className="nav_img" src={new_logo} alt="new post" />
         </Link>
       </div>
-      <Link to="/">
-        <img className="nav_logout" src={logout} alt="logout" />
-      </Link>
 
-      <div>Dashboard</div>
+      <Link to="/">
+        <img className="nav_img nav_logout" src={logout} alt="logout" />
+      </Link>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from "../../../src/helo_logo.png";
 import { Link } from "react-router-dom";
+import "../../App.css";
 
 class Auth extends Component {
   render() {

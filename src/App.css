@@ -65,7 +65,7 @@
   outline-width: 5px;
 }
 
-p {
+.auth_input_box p {
   display: block;
   font-weight: bolder;
   margin-block-start: 1em;
@@ -73,27 +73,6 @@ p {
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   margin: 0;
-}
-
-input {
-  /* background-color: white;
-  cursor: text;
-  padding: 1px;
-  border-width: 2px;
-  border-style: inset;
-  border-color: initial;
-  border-image: initial;
-  text-rendering: auto;
-  color: initial;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: start;
-  margin: 0em;
-  font: 400 11px system-ui; */
 }
 
 .auth_button_container {
