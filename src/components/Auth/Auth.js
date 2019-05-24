@@ -3,10 +3,8 @@ import logo from "../../../src/helo_logo.png";
 import { Link } from "react-router-dom";
 import "../../App.css";
 import axios from "axios";
-import Nav from "../Nav/Nav";
 import { connect } from "react-redux";
 import {
-  updateUserId,
   updateUserName,
   updatePassword,
   updateProfilePic
@@ -16,6 +14,7 @@ class Auth extends Component {
     super(props);
 
     this.state = {
+      users: [],
       username: "",
       password: "",
       profile_pic: ""
@@ -31,14 +30,16 @@ class Auth extends Component {
     console.log("promise", promise);
   }
 
+  userLogin(username) {
+    console.log("works", username);
+    axios.get(`/auth/users/${username}`).then(res => {
+      this.setState({ users: res.data });
+      console.log("full users", res.data);
+    });
+  }
+
   render() {
-    const {
-      updateUserId,
-      updateUserName,
-      updatePassword,
-      updateProfilePic
-    } = this.props;
-    console.log("auth props", this.props);
+    const { updateUserName, updatePassword } = this.props;
     return (
       <div className="auth">
         <div className="auth_container">
@@ -64,7 +65,12 @@ class Auth extends Component {
           </div>
           <div className="auth_button_container">
             <Link to="/dashboard">
-              <button className="button_form">Login </button>
+              <button
+                className="button_form"
+                onClick={() => this.userLogin(this.props.username)}
+              >
+                Login{" "}
+              </button>
             </Link>
             <Link to="/nav">
               <button className="button_form" onClick={() => this.CreateUser()}>

@@ -13,7 +13,7 @@ massive(process.env.CONNECTION_STRING)
   .catch(err => console.log(err));
 
 app.post("/api/users", controller.create);
-app.get("/auth/me", controller.getAll);
+app.get("/auth/users/:username", controller.getOne);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {

@@ -1,6 +1,6 @@
 module.exports = {
   create: (req, res, next) => {
-    console.log("response", res);
+    console.log("response");
     const dbInstance = req.app.get("db");
     const { username, password, profile_pic } = req.body;
 
@@ -14,11 +14,12 @@ module.exports = {
     console.log("added user");
   },
 
-  getAll: (req, res, next) => {
+  getOne: (req, res, next) => {
     const dbInstance = req.app.get("db");
+    const { username } = req.params;
 
     dbInstance
-      .get_user()
+      .get_user([username])
       .then(users => res.status(200).send(users))
       .catch(err => {
         res.status(500).send({
@@ -26,5 +27,6 @@ module.exports = {
         });
         console.log(err);
       });
+    console.log("get user by name");
   }
 };
