@@ -11,6 +11,10 @@ massive(process.env.CONNECTION_STRING)
     app.set("db", db);
   })
   .catch(err => console.log(err));
+
+app.post("/api/users", controller.create);
+app.get("/auth/me", controller.getAll);
+
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}.`);
