@@ -7,7 +7,8 @@ import { connect } from "react-redux";
 import {
   updateUserName,
   updatePassword,
-  updateProfilePic
+  updateProfilePic,
+  updateUserId
 } from "../../ducks/reducer";
 class Auth extends Component {
   constructor(props) {
@@ -16,8 +17,7 @@ class Auth extends Component {
     this.state = {
       users: [],
       username: "",
-      password: "",
-      profile_pic: ""
+      password: ""
     };
   }
 
@@ -35,6 +35,7 @@ class Auth extends Component {
     axios.get(`/auth/users/${username}`).then(res => {
       this.setState({ users: res.data });
       console.log("full users", res.data);
+      console.log("my id", this.props.updateUserId(res.data[0].id));
     });
   }
 
@@ -72,7 +73,7 @@ class Auth extends Component {
                 Login{" "}
               </button>
             </Link>
-            <Link to="/nav">
+            <Link to="/dashboard">
               <button className="button_form" onClick={() => this.CreateUser()}>
                 Register
               </button>
@@ -84,16 +85,17 @@ class Auth extends Component {
   }
 }
 function mapStateToProps(state) {
-  const { username, profile_pic, password } = state;
+  const { username, profile_pic, password, id } = state;
 
   return {
     username,
     profile_pic,
-    password
+    password,
+    id
   };
 }
 
 export default connect(
   mapStateToProps,
-  { updateUserName, updateProfilePic, updatePassword }
+  { updateUserName, updateProfilePic, updatePassword, updateUserId }
 )(Auth);

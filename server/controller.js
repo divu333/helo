@@ -27,6 +27,52 @@ module.exports = {
         });
         console.log(err);
       });
-    console.log("get user by name");
+  },
+
+  getAllPosts: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+
+    dbInstance
+      .get_all_posts()
+      .then(posts => res.status(200).send(posts))
+      .catch(err => {
+        res.status(500).send({
+          errorMessage: "Oops! Something went wrong!"
+        });
+        console.log(err);
+      });
+
+    console.log("posts are welocme");
+  },
+
+  getPost: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { post_id } = req.params;
+
+    dbInstance
+      .get_post(post_id)
+      .then(posts => res.status(200).send(posts))
+      .catch(err => {
+        res.status(500).send({
+          errorMessage: "Oops! Something went wrong!"
+        });
+        console.log(err);
+      });
+    console.log("get post by id");
+  },
+
+  newPost: (req, res, next) => {
+    console.log("response");
+    const dbInstance = req.app.get("db");
+    const { pname, image_url, content, author_id } = req.body;
+
+    dbInstance
+      .add_post([pname, image_url, content, author_id])
+      .then(() => res.sendStatus(200))
+      .catch(err => {
+        res.status(500).send({ errorMessage: "Something went wrong!" });
+        console.log(err);
+      });
+    console.log("added new post");
   }
 };

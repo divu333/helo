@@ -8,9 +8,9 @@ import axios from "axios";
 import { connect } from "react-redux";
 import {
   updateUserName,
-  updateUserId,
   updatePassword,
-  updateProfilePic
+  updateProfilePic,
+  updateUserId
 } from "../../ducks/reducer";
 
 class Nav extends Component {
@@ -19,7 +19,8 @@ class Nav extends Component {
     this.state = {
       username: "",
       password: "",
-      profile_pic: ""
+      profile_pic: "",
+      id: ""
     };
   }
   componentDidMount() {
@@ -38,6 +39,7 @@ class Nav extends Component {
             }}
           />
         </div>
+        <div className="username" />
 
         <div className="nav_links">
           <Link to="/dashboard">
@@ -58,15 +60,16 @@ class Nav extends Component {
 }
 
 function mapStateToProps(state) {
-  const { username, profile_pic, password } = state;
+  const { username, profile_pic, password, id } = state;
 
   return {
     username,
     profile_pic,
-    password
+    password,
+    id
   };
 }
 export default connect(
   mapStateToProps,
-  { updateUserName, updateProfilePic, updatePassword }
+  { updateUserName, updateProfilePic, updatePassword, updateUserId }
 )(Nav);
