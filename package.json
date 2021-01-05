@@ -5,7 +5,7 @@
   "main": "./server/index",
   "dependencies": {
     "@babel/helper-split-export-declaration": "^7.4.4",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
     "dotenv": "^6.2.0",
